@@ -9,6 +9,25 @@
 	</resultMap>
 
 	<select id="findAll" resultMap="courseMap">
-		SELECT * FROM COURSES
+		SELECT
+			*
+		FROM
+			COURSES
+		<where>
+			<if test="courseId != null">
+				ID = #{courseId}
+			</if> 
+			<if test="courseName != null">
+				OR NAME = #{courseName}
+			</if>
+		</where>
 	</select>
+	
+	<insert id="insert" useGeneratedKeys="true" keyColumn="ID" keyProperty="id">
+		INSERT INTO COURSES (ID,NAME) VALUES (COURSE_ID_SEQ.nextval, #{name})
+	</insert>
+	
+	<delete id="deleteById">
+		DELETE FROM COURSES WHERE ID = #{ID}
+	</delete>
 </mapper>

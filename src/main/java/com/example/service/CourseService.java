@@ -17,7 +17,17 @@ public class CourseService {
         this.courseMapper = courseMapper;
     }
 
-    public List<Course> findAll() {
-        return this.courseMapper.findAll();
+    public List<Course> findAll(Integer id, String name) {
+        return this.courseMapper.findAll(id, name);
+    }
+    
+    public void insert(String name) {
+    	Course course = new Course();
+    	course.setName(name);
+    	this.courseMapper.insert(course);
+    }
+    
+    public void deleteById(Integer id) {
+    	this.courseMapper.deleteById(id);
     }
 }
