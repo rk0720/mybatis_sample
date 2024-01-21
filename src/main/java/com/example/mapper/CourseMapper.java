@@ -14,4 +14,6 @@ public interface CourseMapper {
     public void insert(Course course);
     
     public void deleteById(Integer id);
+    
+    public Course findById(Integer id);
 }

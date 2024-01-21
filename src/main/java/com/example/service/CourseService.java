@@ -30,4 +30,8 @@ public class CourseService {
     public void deleteById(Integer id) {
     	this.courseMapper.deleteById(id);
     }
+    
+    public Course findById(Integer id) {
+    	return this.courseMapper.findById(id);
+    }
 }
